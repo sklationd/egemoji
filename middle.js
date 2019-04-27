@@ -1,6 +1,3 @@
-setTimeout(function(){
-    unfade(document.getElementById("whole_body",5));
-},500);
 
 let current_position = 0;
 let number_of_button = 4;    
@@ -24,6 +21,8 @@ right_button.addEventListener('mousedown',right_button_down);
 right_button.addEventListener('mouseleave',right_mouse_leave);
 right_button.addEventListener('mouseenter',mouse_change);
 
+
+
 /* common function */
 function mouse_change(event) {
     document.body.style.cursor = "pointer";
@@ -34,6 +33,7 @@ function update_face(){
     img_src = "./image/button_" + current_position + ".png";
     document.getElementById("face_button").src = img_src;
 }
+// image.png
 
 function dark_face(event){
     inner_text.innerHTML = description[current_position];

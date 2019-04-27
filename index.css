@@ -21,11 +21,6 @@ textarea{
   text-align: left;
 }
 
-body {
-    display: none;
-}
-
-
 #info_text{
   line-height:5px;
 }
