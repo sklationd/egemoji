@@ -13,10 +13,10 @@ textarea{
   height: 80%;
   width: 40%;
   font-family: 'Courier New', Courier, monospace;
+  text-align: left;
 }
 
 body {
-    text-align: center;
     display: none;
 }
 

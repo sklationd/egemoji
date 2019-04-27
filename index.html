@@ -5,6 +5,10 @@
         <title>E-ge-Moji 😏</title>
         <link rel="stylesheet" href="index.css" />
         <script src="init.js"></script>
+        <script src="codemirror/lib/codemirror.js"></script>
+        <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+        <script src="codemirror/mode/clike/clike.js"></script>
+        <script src="codemirror/addon/edit/matchbrackets.js"></script>
     </head>
 
     <body id="whole_body">
@@ -47,13 +51,16 @@
 
         <div id="input_page">
             <div id="textbox_row">
-                <textarea id="code_input" placeholder="Input code"></textarea>
+                <textarea id="code_input" placeholder="//Put your C code here"></textarea>
                 <div id="convert_area">
                     <img id="convert_button" src="./image/right_arrow.png" width="30">
                 </div>
-                <textarea id="code_output" readonly>😏&#10;😏&#10;😏&#10;😏&#10;😏&#10;😏&#10;</textarea>
+                <textarea id="code_output" readonly></textarea>
             </div>
+            <script src=code_edit.js></script>
+            <script src="code.js"></script>
         </div>
+
     </body>
 
 

@@ -17,7 +17,6 @@ left_button.addEventListener('mousedown',left_button_down);
 left_button.addEventListener('mouseleave',left_mouse_leave);
 left_button.addEventListener('mouseenter',mouse_change);
 
-
 let right_button = document.getElementById("right_button");
 right_button.addEventListener('mousedown',right_button_down);
 right_button.addEventListener('mouseleave',right_mouse_leave);
@@ -55,6 +54,8 @@ function face_mouse_click(event){
     },50)
     setTimeout(function(){
         unfade(document.getElementById("input_page"));
+        editor_input.focus();
+        editor_input.refresh();
     },100);
 }
 
@@ -114,11 +115,8 @@ function left_button_down(event) {
         
 }
 
-function left_button_up(event) {
-}
 
 function left_mouse_leave(event){
-    left_button_up(event);
     document.body.style.cursor = "default";
 }
 
@@ -136,6 +134,5 @@ function right_button_down(event) {
 }
 
 function right_mouse_leave(event){
-    right_button_up(event);
     document.body.style.cursor = "default";
 }
