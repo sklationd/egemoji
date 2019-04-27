@@ -8,6 +8,8 @@ preload(
     "./image/pushed_right.png",
     "./image/button_0.png",
     "./image/button_1.png",
+    "./image/button_2.png",
+    "./image/button_3.png"
  )
  
  window.onload = function(){
