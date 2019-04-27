@@ -14,13 +14,11 @@ face_button.addEventListener('click',face_mouse_click);
 
 let left_button = document.getElementById("left_button");
 left_button.addEventListener('mousedown',left_button_down);
-left_button.addEventListener('mouseup',left_button_up);
 left_button.addEventListener('mouseleave',left_mouse_leave);
 left_button.addEventListener('mouseenter',mouse_change);
 
 
 let right_button = document.getElementById("right_button");
-right_button.addEventListener('mouseup',right_button_up);
 right_button.addEventListener('mousedown',right_button_down);
 right_button.addEventListener('mouseleave',right_mouse_leave);
 right_button.addEventListener('mouseenter',mouse_change);
@@ -51,7 +49,13 @@ function face_mouse_leave(event){
 }
 
 function face_mouse_click(event){
-    unfade(document.getElementById("input_page"));
+    document.getElementById("whole_html").style.backgroundColor = "rgb(150,150,150)";
+    setTimeout(function(){
+        fade_none(document.getElementById("info"));
+    },50)
+    setTimeout(function(){
+        unfade(document.getElementById("input_page"));
+    },100);
 }
 
 /* fading */
@@ -69,6 +73,20 @@ function fade(element, interval) {
     }, interval);
 }
 
+function fade_none(element, interval) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.01){
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, interval);
+}
+
+
 function unfade(element, interval) {
     var op = 0.1;  // initial opacity
     element.style.display = 'block';
@@ -85,9 +103,10 @@ function unfade(element, interval) {
 /* left button function */
 
 function left_button_down(event) {
+        document.getElementById("left_button_img").src = "./image/pushed_left.png";
         fade(face_button,5);
         setTimeout(function(){
-            document.getElementById("left_button_img").src = "./image/pushed_left.png";
+            document.getElementById("left_button_img").src = "./image/left.png";
             current_position = ((--current_position)+number_of_button)%number_of_button;
             update_face();
             unfade(face_button,5);
@@ -96,7 +115,6 @@ function left_button_down(event) {
 }
 
 function left_button_up(event) {
-    document.getElementById("left_button_img").src = "./image/left.png";
 }
 
 function left_mouse_leave(event){
@@ -107,17 +125,14 @@ function left_mouse_leave(event){
 /* right button function */
 
 function right_button_down(event) {
+    document.getElementById("right_button_img").src = "./image/pushed_right.png";
     fade(face_button,5);
     setTimeout(function(){
-        document.getElementById("right_button_img").src = "./image/pushed_right.png";
+        document.getElementById("right_button_img").src = "./image/right.png";
         current_position = (++current_position)%number_of_button;
         update_face();
         unfade(face_button,5);
     },300);
-}
-
-function right_button_up(event) {
-    document.getElementById("right_button_img").src = "./image/right.png";
 }
 
 function right_mouse_leave(event){

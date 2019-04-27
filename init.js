@@ -16,7 +16,10 @@ preload(
              var input_page = document.getElementById('input_page');
              document.onclick = function(e){
                 if(!isChild(e.target, input_page) && e.target.id !== 'face_button'){
-                   fade_block(input_page);
+                    document.getElementById("whole_html").style.backgroundColor = "rgb(233,233,233)"; 
+                    if(document.getElementById("input_page").style.display == "block")
+                        unfade(document.getElementById("info"));
+                    fade_none(input_page);
                 }
              };
           };
@@ -41,7 +44,7 @@ function isChild (obj,parentObj){
     return false;
 }
 
-function fade_block(element, interval) {
+function fade_none(element, interval) {
     var op = 1;  // initial opacity
     var timer = setInterval(function () {
         if (op <= 0.01){
