@@ -31,7 +31,7 @@ body {
   z-index:10;
   width:300px;
   height:100px;
-  -webkit-transform: translate(-100%,0);
+  transform: translate(-100%,0);
   left: 50px;
   top:20px;
 }
@@ -45,9 +45,9 @@ body {
 }
 .arrow {
   position: absolute;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(180,180,180));
+  filter: drop-shadow(5px 5px 5px rgb(180,180,180));
   filter:         drop-shadow(5px 5px 5px rgb(180,180,180)); 
-  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 #left_button{
