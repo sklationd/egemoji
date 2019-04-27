@@ -3,8 +3,8 @@ setTimeout(function(){
 },500);
 
 let current_position = 0;
-let number_of_button = 2;    
-let description = ['All Random!', 'Only One!'];
+let number_of_button = 4;    
+let description = ['All Random!', 'Only One!', 'Your Own Emoji!','이거 한번 해봐!'];
 let face = document.getElementById("face");
 let face_button = document.getElementById("face_button");
 let inner_text = document.getElementById("inner_text");
@@ -52,10 +52,15 @@ function face_mouse_leave(event){
 function face_mouse_click(event){
     document.getElementById("whole_html").style.backgroundColor = "rgb(150,150,150)";
     setTimeout(function(){
-        fade_none(document.getElementById("info"));
+        fade_none(document.getElementById("info"),5);
+        fade_none(document.getElementById("developer_info"),5);
     },50)
     setTimeout(function(){
         unfade(document.getElementById("input_page"));
+        if(current_position == 2)
+           document.getElementById("token_row").style.display = "block";
+        else
+           document.getElementById("token_row").style.display = "none";
         editor_input.focus();
         editor_input.refresh();
     },100);

@@ -24,8 +24,13 @@ function convert_mouse_leave(event){
 }
 
 function convert_mouse_click(event){
-    editor_output.setValue(
-      convert_code(editor_input.getValue()));
+  if(current_position == 2){
+    if(document.getElementById("token_input").value === "")
+      alert('Please type any emoji!');
+      return;
+  }
+  editor_output.setValue(
+  convert_code(editor_input.getValue()));
 }
 
 function string_repeat(string, n){
@@ -41,6 +46,13 @@ function getNewKey(n){
   }
   if(current_position == 1){
     return string_repeat(emoji, n+1);
+  }
+  if(current_position == 2){
+    return string_repeat(document.getElementById("token_input").value, n+1);
+  }
+  if(current_position == 3){
+    console.log("what!"+n);
+    return string_repeat('ㅤ',n+1);
   }
 }
 
@@ -71,7 +83,8 @@ function convert_code(input){
       }
     }
   }
-  keyTable = Object.keys(tokenMap)
+  //keyTable = Object.keys(tokenMap)
+  keyTable = Object.keys(tokenMap).sort(function(){return 0.5-Math.random()});
   for(var i = 0; i < keyTable.length; i++){
     output = output + "#define " + tokenMap[keyTable[i]] + " " + keyTable[i] + "\n";
   }

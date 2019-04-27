@@ -9,6 +9,11 @@ html, body, #textbox_row{
   width: 100%;
 }
 
+
+h1 {
+  font-size: 50px;
+}
+
 textarea{
   height: 80%;
   width: 40%;
@@ -20,6 +25,7 @@ body {
     display: none;
 }
 
+
 #info_text{
   line-height:5px;
 }
@@ -28,10 +34,6 @@ body {
   display: flex;
   justify-content: center;
   align-items:center;
-}
-
-h1 {
-  font-size: 50px;
 }
 
 
@@ -53,7 +55,7 @@ h1 {
   background: rgb(200,200,200);
   z-index:10;
   width:500px;
-  height:300px;
+  height:500px;
   transform: translate(-100%,0);
   left: 50px;
   top:20px;
@@ -121,8 +123,35 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+#token_row{
+  display: none;
+}
+#token_input{
+  margin-top: 5px;
+  width: 5em;
+}
 
 #convert_area{
   margin-left: 10px;
   margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 5em;
 }
+
+#dev1{
+  border-radius:40px;
+  width: 80px;
+}
+
+#dev2{
+  border-radius:40px;
+  width:80px;
+}
+
+#bottom{
+  position: fixed;
+  bottom: 2%;
+}
+
