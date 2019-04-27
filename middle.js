@@ -14,7 +14,6 @@ function update_face(){
 
 function face_button_down(event) { 
     img_src = "./image/pushed_button_"+ current_position + ".png";
-    console.log(img_src);
     document.getElementById("face_button").src = img_src;
 }
 
@@ -32,6 +31,36 @@ function face_mouse_leave(event){
     document.body.style.cursor = "default";
 }
 
+/* fading */
+
+function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.01){
+            clearInterval(timer);
+            element.style.opacity = 0;
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 5);
+}
+
+function unfade(element) {
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 5);
+}
+
+/* left button */
+
 let left_button = document.getElementById("left_button");
 left_button.addEventListener('mousedown',left_button_down);
 left_button.addEventListener('mouseup',left_button_up);
@@ -40,9 +69,14 @@ left_button.addEventListener('mouseenter',mouse_change);
 
 
 function left_button_down(event) {
-    document.getElementById("left_button_img").src = "./image/pushed_left.png";
-    current_position = ((--current_position)+number_of_button)%number_of_button;
-    update_face();
+        fade(face_button);
+        setTimeout(function(){
+            document.getElementById("left_button_img").src = "./image/pushed_left.png";
+            current_position = ((--current_position)+number_of_button)%number_of_button;
+            update_face();
+            unfade(face_button);
+        },300)
+        
 }
 
 function left_button_up(event) {
@@ -62,9 +96,15 @@ right_button.addEventListener('mouseleave',right_mouse_leave);
 right_button.addEventListener('mouseenter',mouse_change);
 
 function right_button_down(event) {
-    document.getElementById("right_button_img").src = "./image/pushed_right.png";
-    current_position = (++current_position)%number_of_button;
-    update_face();
+    fade(face_button);
+    setTimeout(function(){
+        document.getElementById("right_button_img").src = "./image/pushed_right.png";
+        current_position = (++current_position)%number_of_button;
+        update_face();
+        unfade(face_button);
+    },300);
+    
+
 }
 
 function right_button_up(event) {

@@ -46,7 +46,7 @@ body {
 .arrow {
   position: absolute;
   filter: drop-shadow(5px 5px 5px rgb(180,180,180));
-  filter:         drop-shadow(5px 5px 5px rgb(180,180,180)); 
+  filter: drop-shadow(5px 5px 5px rgb(180,180,180)); 
   transform: translate(-50%,-50%);
 }
 
@@ -58,6 +58,7 @@ body {
   border-radius: 150px;
   box-shadow:  5px 5px 5px rgb(180,180,180);
 }
+
 #right_button{
   position: relative;
   left: 10%;
