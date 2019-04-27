@@ -4,11 +4,11 @@ info_button.addEventListener('mouseleave', leave);
 
 
 function enter(event) {
-    let info_box = document.getElementById("info-box");
+    let info_box = document.getElementById("info_box");
     info_box.style.visibility = "visible";
 }
 
 function leave(event) {
-    let info_box = document.getElementById("info-box");
+    let info_box = document.getElementById("info_box");
     info_box.style.visibility = "hidden";
 }

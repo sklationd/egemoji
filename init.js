@@ -7,14 +7,14 @@ preload(
     "./image/right.png",
     "./image/pushed_right.png",
     "./image/button_0.png",
-    "./image/pushed_button_0.png",
     "./image/button_1.png",
-    "./image/pushed_button_1.png",
  )
  
  window.onload = function(){
              var input_page = document.getElementById('input_page');
              document.onclick = function(e){
+                 if(!e.target.id)
+                    return;
                 if(!isChild(e.target, input_page) && e.target.id !== 'face_button'){
                     document.getElementById("whole_html").style.backgroundColor = "rgb(233,233,233)"; 
                     if(document.getElementById("input_page").style.display == "block")

@@ -4,13 +4,15 @@ setTimeout(function(){
 
 let current_position = 0;
 let number_of_button = 2;    
-
+let description = ['All Random!', 'Only One!'];
+let face = document.getElementById("face");
 let face_button = document.getElementById("face_button");
-face_button.addEventListener('mousedown',face_button_down);
-face_button.addEventListener('mouseup',face_button_up);
-face_button.addEventListener('mouseleave',face_mouse_leave);
-face_button.addEventListener('mouseenter',mouse_change);
-face_button.addEventListener('click',face_mouse_click);
+let inner_text = document.getElementById("inner_text");
+let description_block = document.getElementById("description_block");
+
+face.addEventListener('mouseout',face_mouse_leave);
+face.addEventListener('mouseover',dark_face);
+face.addEventListener('click',face_mouse_click);
 
 let left_button = document.getElementById("left_button");
 left_button.addEventListener('mousedown',left_button_down);
@@ -22,29 +24,29 @@ right_button.addEventListener('mousedown',right_button_down);
 right_button.addEventListener('mouseleave',right_mouse_leave);
 right_button.addEventListener('mouseenter',mouse_change);
 
+/* common function */
+function mouse_change(event) {
+    document.body.style.cursor = "pointer";
+}
 
+/* face function */
 function update_face(){
     img_src = "./image/button_" + current_position + ".png";
     document.getElementById("face_button").src = img_src;
 }
 
-function face_button_down(event) { 
-    img_src = "./image/pushed_button_"+ current_position + ".png";
-    document.getElementById("face_button").src = img_src;
-}
+function dark_face(event){
+    inner_text.innerHTML = description[current_position];
+    mouse_change(event);
+    face_button.style.filter = "brightness(0.4)";
+    description_block.style.visibility = "visible";
 
-function face_button_up(event) {
-    img_src = "./image/button_" + current_position + ".png";
-    document.getElementById("face_button").src = img_src;
-}
-
-function mouse_change(event) {
-    document.body.style.cursor = "pointer";
 }
 
 function face_mouse_leave(event){
-    face_button_up(event);
+    description_block.style.visibility = "hidden";
     document.body.style.cursor = "default";
+    face_button.style.filter = "brightness(1)";
 }
 
 function face_mouse_click(event){

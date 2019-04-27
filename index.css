@@ -20,15 +20,24 @@ body {
     display: none;
 }
 
+#info_text{
+  line-height:5px;
+}
 #top{
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items:center;
 }
 
+h1 {
+  font-size: 50px;
+}
+
+
 #info{
   text-align: center;
-  border-radius: 5px;
+  border-radius: 8px;
   line-height:50px;
   vertical-align:middle;
   position: absolute;
@@ -37,21 +46,21 @@ body {
   right:2%;
 }
 
-#info-box {
+#info_box {
   visibility: hidden;
   position: absolute;
   border-radius: 10px;
   background: rgb(200,200,200);
   z-index:10;
-  width:300px;
-  height:100px;
+  width:500px;
+  height:300px;
   transform: translate(-100%,0);
   left: 50px;
   top:20px;
 }
 
 #middle{
-  margin-top: 130px;
+  margin-top: 90px;
   display: flex;
   position: relative;
   justify-content: center;
@@ -63,19 +72,33 @@ body {
   filter: drop-shadow(5px 5px 5px rgb(180,180,180)); 
   transform: translate(-50%,-50%);
 }
-
+#face {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items:center;
+}
 #left_button{
   position: relative;
   right:10%;
 }
 #face_button{
   border-radius: 150px;
+  filter:  brightness(1);
 }
 
 #right_button{
   position: relative;
   left: 10%;
 }
+#description_block{
+  display: relative;
+  visibility: hidden;
+  position: absolute;
+  color: white;
+  font-size: 30px;
+
+} 
 
 #input_page{
   border-radius: 25px;
