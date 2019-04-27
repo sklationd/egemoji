@@ -25,9 +25,10 @@ function convert_mouse_leave(event){
 
 function convert_mouse_click(event){
   if(current_position == 2){
-    if(document.getElementById("token_input").value === "")
+    if(document.getElementById("token_input").value === ""){
       alert('Please type any emoji!');
       return;
+    }
   }
   editor_output.setValue(
   convert_code(editor_input.getValue()));
