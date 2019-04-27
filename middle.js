@@ -10,6 +10,7 @@ face_button.addEventListener('mousedown',face_button_down);
 face_button.addEventListener('mouseup',face_button_up);
 face_button.addEventListener('mouseleave',face_mouse_leave);
 face_button.addEventListener('mouseenter',mouse_change);
+face_button.addEventListener('click',face_mouse_click);
 
 let left_button = document.getElementById("left_button");
 left_button.addEventListener('mousedown',left_button_down);
@@ -47,6 +48,10 @@ function mouse_change(event) {
 function face_mouse_leave(event){
     face_button_up(event);
     document.body.style.cursor = "default";
+}
+
+function face_mouse_click(event){
+    unfade(document.getElementById("input_page"));
 }
 
 /* fading */
