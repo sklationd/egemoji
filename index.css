@@ -34,11 +34,10 @@ body {
   -webkit-transform: translate(-100%,0);
   left: 50px;
   top:20px;
-  opacity: 0.7;
 }
 
 #middle{
-  margin-top: 50px;
+  margin-top: 130px;
   display: flex;
   position: relative;
   justify-content: center;
@@ -46,6 +45,8 @@ body {
 }
 .arrow {
   position: absolute;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(180,180,180));
+  filter:         drop-shadow(5px 5px 5px rgb(180,180,180)); 
   -webkit-transform: translate(-50%,-50%);
 }
 
@@ -53,7 +54,10 @@ body {
   position: relative;
   right:10%;
 }
-
+#face_button{
+  border-radius: 150px;
+  box-shadow:  5px 5px 5px rgb(180,180,180);
+}
 #right_button{
   position: relative;
   left: 10%;
