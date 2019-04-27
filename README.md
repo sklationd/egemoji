@@ -1,1 +1,1 @@
-# emoji-code.github.io
+# sklationd.github.io/egemoji
