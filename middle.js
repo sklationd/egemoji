@@ -1,11 +1,29 @@
+setTimeout(function(){
+    unfade(document.getElementById("whole_body",5));
+},500);
+
+let current_position = 0;
+let number_of_button = 2;    
+
 let face_button = document.getElementById("face_button");
 face_button.addEventListener('mousedown',face_button_down);
 face_button.addEventListener('mouseup',face_button_up);
 face_button.addEventListener('mouseleave',face_mouse_leave);
 face_button.addEventListener('mouseenter',mouse_change);
 
-let current_position = 0;
-let number_of_button = 2;
+let left_button = document.getElementById("left_button");
+left_button.addEventListener('mousedown',left_button_down);
+left_button.addEventListener('mouseup',left_button_up);
+left_button.addEventListener('mouseleave',left_mouse_leave);
+left_button.addEventListener('mouseenter',mouse_change);
+
+
+let right_button = document.getElementById("right_button");
+right_button.addEventListener('mouseup',right_button_up);
+right_button.addEventListener('mousedown',right_button_down);
+right_button.addEventListener('mouseleave',right_mouse_leave);
+right_button.addEventListener('mouseenter',mouse_change);
+
 
 function update_face(){
     img_src = "./image/button_" + current_position + ".png";
@@ -33,7 +51,7 @@ function face_mouse_leave(event){
 
 /* fading */
 
-function fade(element) {
+function fade(element, interval) {
     var op = 1;  // initial opacity
     var timer = setInterval(function () {
         if (op <= 0.01){
@@ -43,10 +61,10 @@ function fade(element) {
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op -= op * 0.1;
-    }, 5);
+    }, interval);
 }
 
-function unfade(element) {
+function unfade(element, interval) {
     var op = 0.1;  // initial opacity
     element.style.display = 'block';
     var timer = setInterval(function () {
@@ -56,25 +74,18 @@ function unfade(element) {
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
-    }, 5);
+    }, interval);
 }
 
-/* left button */
-
-let left_button = document.getElementById("left_button");
-left_button.addEventListener('mousedown',left_button_down);
-left_button.addEventListener('mouseup',left_button_up);
-left_button.addEventListener('mouseleave',left_mouse_leave);
-left_button.addEventListener('mouseenter',mouse_change);
-
+/* left button function */
 
 function left_button_down(event) {
-        fade(face_button);
+        fade(face_button,5);
         setTimeout(function(){
             document.getElementById("left_button_img").src = "./image/pushed_left.png";
             current_position = ((--current_position)+number_of_button)%number_of_button;
             update_face();
-            unfade(face_button);
+            unfade(face_button,5);
         },300)
         
 }
@@ -88,23 +99,16 @@ function left_mouse_leave(event){
     document.body.style.cursor = "default";
 }
 
-
-let right_button = document.getElementById("right_button");
-right_button.addEventListener('mouseup',right_button_up);
-right_button.addEventListener('mousedown',right_button_down);
-right_button.addEventListener('mouseleave',right_mouse_leave);
-right_button.addEventListener('mouseenter',mouse_change);
+/* right button function */
 
 function right_button_down(event) {
-    fade(face_button);
+    fade(face_button,5);
     setTimeout(function(){
         document.getElementById("right_button_img").src = "./image/pushed_right.png";
         current_position = (++current_position)%number_of_button;
         update_face();
-        unfade(face_button);
+        unfade(face_button,5);
     },300);
-    
-
 }
 
 function right_button_up(event) {
